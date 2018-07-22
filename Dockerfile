@@ -37,6 +37,9 @@ ENV GLUON_SINGLE_DEVICE "tp-link-tl-wr1043n-nd-v1"
 # build dir
 RUN mkdir /build
 
+# add build scripts
+ADD build\*.sh /build
+
 WORKDIR /build
 
-VOLUME [ "/opt/friefunk", "/build" ]
+VOLUME [ "/opt/friefunk" ]
