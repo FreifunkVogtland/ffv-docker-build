@@ -16,6 +16,7 @@ RUN apt-get update \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
+# gluon / site
 ENV GLUON_VERSION "2018.1-2"
 ENV SIGN_KEYDIR "/opt/freifunk/signkeys_ffv"
 ENV MANIFEST_KEY "manifest_key"
@@ -26,10 +27,16 @@ ENV GLUONDIR "gluon-ffv-${TARGET_BRANCH}"
 ENV GLUON_OPKG_KEY "${SIGN_KEYDIR}/gluon-opkg-key"
 ENV GLUON_RELEASE "${SITE_TAG}"
 
+# multi targets
 ENV TARGETS "ar71xx-generic ar71xx-tiny ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 ipq806x mpc85xx-generic ramips-mt7620 ramips-mt7621 ramips-mt7628 ramips-rt305x sunxi x86-generic x86-geode x86-64 ar71xx-mikrotik brcm2708-bcm2710 mvebu"
 
+# single target
+ENV GLUON_SINGLE_TARGET "ar71xx-generic"
+ENV GLUON_SINGLE_DEVICE "tp-link-tl-wr1043n-nd-v1"
+
+# build dir
 RUN mkdir /build
 
 WORKDIR /build
 
-VOLUME ["/opt/friefunk"]
+VOLUME [ "/opt/friefunk", "/build" ]
