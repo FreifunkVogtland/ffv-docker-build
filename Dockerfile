@@ -4,7 +4,7 @@ RUN apt-get update \
     && apt-get install -y locales \
         git \
         subversion \
-        python2 \
+        python \
         build-essential \ 
         gawk \
         unzip \
