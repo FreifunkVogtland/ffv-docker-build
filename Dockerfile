@@ -38,7 +38,7 @@ ENV GLUON_SINGLE_DEVICE "tp-link-tl-wr1043n-nd-v1"
 RUN mkdir /build
 
 # add build scripts
-ADD build/*.sh /build
+ADD build/*.sh /build/
 
 RUN chmod +x /build/*.sh
 
