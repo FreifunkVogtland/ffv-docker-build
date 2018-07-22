@@ -49,4 +49,10 @@ RUN chmod +x /build/*.sh
 
 WORKDIR /build
 
-VOLUME [ "/opt/friefunk", "/output" ]
+RUN useradd -ms /bin/bash ffv \
+    && chown ffv /build -R \
+    && chown ffv /output -R
+
+USER ffv
+
+VOLUME [ "/opt/freifunk", "/build", "/output" ]
