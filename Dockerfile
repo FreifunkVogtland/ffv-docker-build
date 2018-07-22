@@ -40,6 +40,8 @@ RUN mkdir /build
 # add build scripts
 ADD build\*.sh /build
 
+RUN chmod +x /build/*.sh
+
 WORKDIR /build
 
 VOLUME [ "/opt/friefunk" ]
